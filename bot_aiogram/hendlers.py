@@ -29,9 +29,9 @@ async def send_command_to_robot(action: str):
         
 @router.message(CommandStart())
 async def start(message: Message):
-    await message.answer("Это бот для дистанционого управления роботом! \n\n <b>Комманды</b> \n\n /Температура \n /УборкаПредметов\n /ВоспроизвестиМелодий\n Настройки \n /Статус", parse_mode = "HTML")
+    await message.answer("Это бот для дистанционого управления роботом! \n\n <b>Комманды</b> \n\n /Temperatura \n /Predmet\n /melody \n /nastroika \n /Status", parse_mode = "HTML")
 
-@router.message(Command("Температура"))
+@router.message(Command("Temperatura"))
 async def temperatur(message: Message):
     #передача температуры
     async with aiosqlite.connect("database.db") as db:
@@ -47,20 +47,20 @@ async def temperatur(message: Message):
         else:
             await message.answer("Вы еще не измеряли температуру")
 
-@router.message(Command("УборкаПредметов"))
+@router.message(Command("Predmet"))
 async def yborka(message: Message):
     await message.answer("Выберите режим ", reply_markup=mode)
 
-@router.message(Command("ВоспроизведениеМелодий"))
+@router.message(Command("melody"))
 async def melody(message: Message):
     await message.answer("Выберите мелодию которую хотите воспроизвести ", reply_markup=melody)
 
-@router.message(Command("Настройки"))
+@router.message(Command("nastroika"))
 async def temperatur(message: Message):
     await message.answer("Настройки")
     await message.answer("Ваш Wi-Fi:")
 
-@router.message(Command("Статус"))
+@router.message(Command("Status"))
 async def temperatur(message: Message):
     await message.answer("Статус")
     async with aiosqlite.connect("database.db") as db:
