@@ -29,7 +29,7 @@ async def send_command_to_robot(action: str):
         
 @router.message(CommandStart())
 async def start(message: Message):
-    await message.answer("Это бот для дистанционого управления роботом! \n\n <b>Комманды</b> \n\n /Температура \n /УборкаПредметов\n /ВоспроизвестиМелодий\n Настройки \n /Статус", parseMode = "HTML")
+    await message.answer("Это бот для дистанционого управления роботом! \n\n <b>Комманды</b> \n\n /Температура \n /УборкаПредметов\n /ВоспроизвестиМелодий\n Настройки \n /Статус", parse_mode = parseMode.HTML)
 
 @router.message(Command("Температура"))
 async def temperatur(message: Message):
