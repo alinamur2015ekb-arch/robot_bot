@@ -34,6 +34,7 @@ async def start(message: Message):
 @router.message(Command("Temperatura"))
 async def temperatur(message: Message):
     #передача температуры
+try:
     async with aiosqlite.connect("database.db") as db:
         async with db.execute("SELECT temperatura, humidity FROM telem ORDER BY id DESC LIMIT 1") as cursor:
             row = await cursor.fetchone() 
@@ -46,8 +47,8 @@ async def temperatur(message: Message):
             )
         else:
             await message.answer("Вы еще не измеряли температуру")
-        except Exception as e:
-            await message.answer(f"Ошибка: {e}")  # временно для отладки
+except Exception as e:
+        await message.answer(f"Ошибка: {e}")  # временно для отладки
 
 @router.message(Command("Predmet"))
 async def yborka(message: Message):
