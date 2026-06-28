@@ -1,7 +1,7 @@
 from aiogram import Router, F
 from aiogram.filters import Command, CommandStart
 from aiogram.types import Message, CallbackQuery
-from .keyboard import mode, melody
+from .keyboard import mode, melodys
 from database import create_telem
 import aiohttp
 import aiosqlite
@@ -53,7 +53,7 @@ async def yborka(message: Message):
 
 @router.message(Command("melody"))
 async def melody(message: Message):
-    await message.answer("Выберите мелодию которую хотите воспроизвести ", reply_markup=melody)
+    await message.answer("Выберите мелодию которую хотите воспроизвести ", reply_markup=melodys)
 
 @router.message(Command("nastroika"))
 async def temperatur(message: Message):
