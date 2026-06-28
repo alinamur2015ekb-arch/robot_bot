@@ -71,7 +71,7 @@ async def temperatur(message: Message):
             if row:
                 statuses = row 
                 
-                await message.answer(f" Статус: {statuses}")
+                await message.answer(f" Статус: {status}")
             else:
                 await message.answer("Вы еще не запускади бота")
 
