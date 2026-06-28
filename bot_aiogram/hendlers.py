@@ -46,6 +46,8 @@ async def temperatur(message: Message):
             )
         else:
             await message.answer("Вы еще не измеряли температуру")
+        except Exception as e:
+            await message.answer(f"Ошибка: {e}")  # временно для отладки
 
 @router.message(Command("Predmet"))
 async def yborka(message: Message):
