@@ -3,6 +3,7 @@ from typing import Optional
 
 
 DB_NAME = "database.db"
+DB_STATUS = "status.db"
 
 async def init_telem():
     async with aiosqlite.connect(DB_NAME) as db:
@@ -27,7 +28,7 @@ async def create_telem(temperatura, humidity):
 
 
 async def init_status():
-    async with aiosqlite.connect(DB_NAME) as db:
+    async with aiosqlite.connect(DB_STATUS) as db:
         await db.execute('''
             CREATE TABLE IF NOT EXISTS answer(
             id INTEGER PRIMARY KEY,
@@ -37,7 +38,7 @@ async def init_status():
         
 
 async def create_status(statuses):
-    async with aiosqlite.connect(DB_NAME) as db:
+    async with aiosqlite.connect(DB_STATUS) as db:
         await db.execute("""
             INSERT INTO statuses (statuses) 
             VALUES (?)
