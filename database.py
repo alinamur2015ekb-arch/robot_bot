@@ -7,7 +7,7 @@ DB_NAME = "database.db"
 async def init_telem():
     async with aiosqlite.connect(DB_NAME) as db:
         await db.execute('''
-            CREATE TABLE IF NOT EXISTS answer(
+            CREATE TABLE IF NOT EXISTS telem(
             id INTEGER PRIMARY KEY,
             temperatura REAL,
             humidity REAL,
