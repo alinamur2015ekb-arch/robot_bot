@@ -15,7 +15,7 @@ dp.include_routers(
 
 async def main():
     bot = Bot(TOKEN)
-    await init_db()
+    await init_telem()
     await dp.start_polling(bot) 
     
 if __name__ == "__main__":
