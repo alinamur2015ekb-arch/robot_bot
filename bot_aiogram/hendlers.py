@@ -79,11 +79,11 @@ async def temperatur(message: Message):
 #Обработка клавиатур
 @router.callback_query(F.data == "mode_time")
 async def mode_times(callback: CallbackQuery, state: FSMContext):
-    await callback.answer("Введите нужно время только число (в минутах)")
+    await callback.message.answer("Введите нужно время только число (в минутах)")
     await state.set_state(cleanings.time)
 
 
-@router.message(cleanings.time)
+@router.message(cleanings.time, F.text)
 async def mode_time_receive(message: Message, state: FSMContext):
     text = message.text
     if not text or not text.isdigit():
