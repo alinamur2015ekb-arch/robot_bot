@@ -8,7 +8,7 @@ mode = InlineKeyboardMarkup(
     ]
 )
 
-melody = InlineKeyboardMarkup(
+melodys = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(text="Harry Potter", callback_data="harrypotter")],
         [InlineKeyboardButton(text="Имперский марш", callback_data="imperio")],
