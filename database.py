@@ -17,11 +17,11 @@ async def init_telem():
                          ''')
         
 
-async def create_telem(temperatura, humidity, status):
+async def create_telem(temperatura, humidity):
     async with aiosqlite.connect(DB_NAME) as db:
         await db.execute("""
             INSERT INTO telem (temperatura, humidity, status) 
-            VALUES (?, ?, ?, ?)
+            VALUES (?, ?)
         """, (temperatura, humidity, status))
         await db.commit()
 
